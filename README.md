@@ -1,35 +1,24 @@
-# docker-capybara-chrome
-Run Capybara with Chromedriver in headless mode
+# docker-locust
+Run Locust in Dockers for performance testing.
 
-Ruby + Capybara + Chrome + Chromedriver
+Locust + Docker + Python + Master + Slave
 
 ## get the image
-    docker pull gunesmes/docker-capybara-chrome
+    docker pull gunesmes/docker-locust
 
 ## run the image with executing your tests
-    docker run -v /path/to/project:/usr/src/app parallel_cucumber bash -c "cucumber features/M001_head_menu.feature"
+    docker run --rm --name locust -v $PWD:/locust gunesmes/docker-locust -f /locust locust-file.py
 
-or
+## write required python libraries inside the requirements.txt
 
-    docker run -v /path/to/project:/usr/src/app parallel_cucumber bash -c "cucumber features --tag @smoke"
+In Dockerfile there is a step at the end of the process to install required libraries defined in the requirements.txt so you must add all your requirements inside this file as in following format:
 
-
-## set headless driver in your env.rb file
-
-Ensure that you have chromedriver headless in your `env.rb`, you can set it as below:
-
-    Capybara.register_driver :chrome_headless do |app|
-      args = ["--window-size=1280,1696", "--disable-infobars", "--disable-notifications", "--no-sandbox", "--headless", "--disable-gpu"]  
-      Capybara::Selenium::Driver.new(app, {:browser => :chrome, :args => args})
-    end
-
-    Capybara.default_driver = :chrome_headless
-    Capybara.javascript_driver = :chrome_headless
-
+  pyquery
+  requests
 
 ## simpliest running the tags in run.sh
 
-Ensure that you are in the project folder, and the path in run.sh is correct
+Ensure that you are in the project folder, and the path in run.py is correct
 
 	~/d/simple_capybara (master ⚡) sh run.sh
 	latest: Pulling from gunesmes/docker-capybara-chrome
