@@ -20,14 +20,6 @@ In Dockerfile there is a step at the end of the process to install required libr
 
 Ensure that you are in the project folder, and the path in run.py is correct
 
-	~/d/simple_capybara (master ⚡) sh run.sh
-	latest: Pulling from gunesmes/docker-capybara-chrome
-	Digest: sha256:7a4e0051cd5483ced7f489f14dfc8dbcfc9b2957e4e77d5ee3c9aca077820b50
-	Status: Image is up to date for gunesmes/docker-capybara-chrome:latest
-	 - Running tests with tagged: search
-	 - Running tests with tagged: navigate-video
 
-	 - All processes done!
-	 - 0 minutes and 27 seconds elapsed.
 
 
