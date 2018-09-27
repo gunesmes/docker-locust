@@ -7,7 +7,7 @@ Locust + Docker + Python + Master + Slave
     docker pull gunesmes/docker-locust
 
 ## run the image with executing your tests
-    docker run --rm --name locust -v $PWD:/locust gunesmes/docker-locust -f /locust locust-file.py
+    docker run --rm --name locust -p 8089:8089 -v $PWD:/locust gunesmes/docker-locust -f /locust locust-file.py
 
 ## write required python libraries inside the requirements.txt
 
@@ -19,7 +19,4 @@ In Dockerfile there is a step at the end of the process to install required libr
 ## simpliest running the tags in run.sh
 
 Ensure that you are in the project folder, and the path in run.py is correct
-
-
-
 
